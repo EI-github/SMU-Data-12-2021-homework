@@ -1,0 +1,65 @@
+-- 2) List first name, last name, and hire date for employees who were hired in 1986.
+
+SELECT
+	count(*)
+FROM
+	employees e
+WHERE
+	e.hire_date >= '1986-01-01'
+	AND e.hire_date <= '1986-12-31';
+	
+SELECT
+	count(*)
+FROM
+	employees e
+WHERE
+	extract(year from e.hire_date) = 1986;
+	
+-- 5) List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B.
+select
+	*
+from
+	employees e
+where
+	e.first_name = 'Hercules'
+	and e.last_name like 'B%'
+order by
+	e.last_name
+limit 10;
+
+-- 8) In descending order, list the frequency count of employee last names, i.e., how many employees share each last name
+
+SELECT
+	e.last_name,
+	count(emp_no) as num_employees
+FROM
+	employees e
+group by
+	e.last_name
+order by
+	num_employees desc
+LIMIT 10;
+
+-- epilogue
+select
+*
+from
+employees
+where
+emp_no = 499942;
+
+-- 6. List all employees in the Sales department, including their employee number, last name, first name, and department name.
+Select
+	d.dept_no,
+	d.dept_name,
+	e.emp_no,
+	e.first_name,
+	e.last_name
+from
+	employees e
+	join dept_emp de on e.emp_no = de.emp_no
+	join departments d on d.dept_no = de.dept_no
+where
+	d.dept_name = 'Sales'
+order by
+	e.last_name;
