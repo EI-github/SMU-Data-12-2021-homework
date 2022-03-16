@@ -1,0 +1,25 @@
+.border {
+    border: 5px solid rgb(102, 1, 102) !important;
+}
+
+tr {
+    color: black;
+    font-weight: bold;
+   }
+
+label {
+    color: black;
+    font-weight: bold;
+}
+
+.dataTables_info {
+    color: black;
+}
+
+a {
+    font-weight: bold;
+}
+
+.dataTables_info {
+    font-weight: bold;
+}
